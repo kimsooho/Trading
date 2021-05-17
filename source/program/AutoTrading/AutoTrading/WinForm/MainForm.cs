@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.IdentityModel.Tokens.Jwt;
+using System.Security.Cryptography;
+
+using AutoTrading.API;
 
 namespace AutoTrading.WinForm
 {
@@ -15,6 +19,18 @@ namespace AutoTrading.WinForm
         public MainForm()
         {
             InitializeComponent();
+            InitEvents();
+        }
+
+        private void InitEvents()
+        {
+            this.Load += MainForm_Load;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {   
+            RestApiManager.GetInstance().SetKeys("ACCESS KEY 입력", "SECRET KEY 입력");
+            MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
         }
     }
 }
