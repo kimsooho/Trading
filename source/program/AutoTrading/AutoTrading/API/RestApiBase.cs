@@ -25,17 +25,52 @@ namespace AutoTrading.API
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        protected string MakeTocken(Dictionary<string, string> param = null)
+        protected string CallRestAPI(string methodType, string URL, Dictionary<string, string> param = null)
         {
-            if (param is null) param = new Dictionary<string, string>();
+            string responseFromServer = string.Empty;
+            string queryString = string.Empty;
 
-            StringBuilder builder = new StringBuilder();
-            foreach (KeyValuePair<string, string> pair in param)
+            if (!(param is null))
             {
-                builder.Append(pair.Key).Append("=").Append(pair.Value).Append("&");
-            }
-            string queryString = builder.ToString().TrimEnd('&');
+                StringBuilder builder = new StringBuilder();
+                foreach (KeyValuePair<string, string> pair in param)
+                {
+                    builder.Append(pair.Key).Append("=").Append(pair.Value).Append("&");
+                }
+                queryString = builder.ToString().TrimEnd('&');
 
+                URL = string.Format("{0}?{1}", URL, queryString);
+            }
+
+            try
+            {
+                WebRequest request = WebRequest.Create(URL);
+                request.Method = methodType;
+                request.ContentType = "application/json";
+                request.Headers.Add(string.Format("Authorization:{0}", MakeTocken(queryString)));
+
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                {
+                    responseFromServer = reader.ReadToEnd();
+                }
+
+            }
+            catch (WebException e)
+            {
+                using (Stream dataStream = e.Response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                {
+                    responseFromServer = reader.ReadToEnd();
+                }
+            }
+
+            return responseFromServer;
+        }
+
+        private string MakeTocken(string queryString)
+        {
             SHA512 sha512 = SHA512.Create();
             byte[] queryHashByteArray = sha512.ComputeHash(Encoding.UTF8.GetBytes(queryString));
             string queryHash = BitConverter.ToString(queryHashByteArray).Replace("-", "").ToLower();
@@ -58,33 +93,6 @@ namespace AutoTrading.API
             var authorizationToken = "Bearer " + jwtToken;
 
             return authorizationToken;
-        }
-
-        protected string CallRestAPI(string methodType, string URL, string tocken)
-        {
-            string responseFromServer = string.Empty;
-
-            try
-            {
-                WebRequest request = WebRequest.Create(URL);
-                request.Method = methodType;
-                request.ContentType = "application/json";
-                request.Headers.Add(string.Format("Authorization:{0}", tocken));
-
-                using (WebResponse response = request.GetResponse())
-                using (Stream dataStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(dataStream))
-                {
-                    responseFromServer = reader.ReadToEnd();
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
-            return responseFromServer;
         }
     }
 }

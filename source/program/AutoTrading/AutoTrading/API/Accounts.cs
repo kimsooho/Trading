@@ -12,7 +12,19 @@ namespace AutoTrading.API
         public Accounts(string accessKey, string secretKey) : base(accessKey, secretKey) { }
         public string GetAllAccounts()
         {
-            return CallRestAPI("GET", "https://api.upbit.com/v1/market/all?isDetails=false", MakeTocken());
+            return CallRestAPI("GET", "https://api.upbit.com/v1/market/all?isDetails=false");
+        }
+
+        public string Test()
+        {
+            /*
+             * 파라미터가 있을 경우 테스트 코드
+             */
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("market", "KRW-BTC");
+
+            return CallRestAPI("GET", "https://api.upbit.com/v1/orders/chance", param);
         }
     }
 }
