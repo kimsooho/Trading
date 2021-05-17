@@ -22,6 +22,7 @@ namespace AutoTrading.API
         }
         /// <summary>
         /// API에 파라미터가 필요한 경우, Dic에 key, value로 넣어서 함수 호출하셈.
+        /// Accounts.cs -> Test() 참조
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
