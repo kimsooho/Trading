@@ -61,6 +61,7 @@
     <Compile Include="API\Accounts.cs" />
     <Compile Include="API\RestApiBase.cs" />
     <Compile Include="API\RestApiManager.cs" />
+    <Compile Include="Util\Debug.cs" />
     <Compile Include="WinForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserControl\" />
-    <Folder Include="Util\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

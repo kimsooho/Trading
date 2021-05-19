@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 
 using AutoTrading.API;
+using AutoTrading.Util;
 
 namespace AutoTrading.WinForm
 {
@@ -31,6 +32,7 @@ namespace AutoTrading.WinForm
         {   
             RestApiManager.GetInstance().SetKeys("ACCESS KEY 입력", "SECRET KEY 입력");
             MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
+            Debug.GetInstance().Log("hello");
         }
     }
 }
