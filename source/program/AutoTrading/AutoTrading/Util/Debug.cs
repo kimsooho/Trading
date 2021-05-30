@@ -9,18 +9,18 @@ namespace AutoTrading.Util
 {
     class Debug
     {
-        protected static Debug Instance = null;
-        public static Debug GetInstance()
-        {
-            if (Instance is null)
-            {
-                Instance = new Debug();
-            }
+        //protected static Debug Instance = null;
+        //public static Debug GetInstance()
+        //{
+        //    if (Instance is null)
+        //    {
+        //        Instance = new Debug();
+        //    }
 
-            return Instance;
-        }
+        //    return Instance;
+        //}
 
-        public void Log(String Message)
+        public static void Log(String Message)
         {
             StackFrame CallStack = new StackFrame(1, true);
 
