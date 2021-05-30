@@ -59,8 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Accounts.cs" />
+    <Compile Include="API\Deposit.cs" />
+    <Compile Include="API\Order.cs" />
     <Compile Include="API\RestApiBase.cs" />
     <Compile Include="API\RestApiManager.cs" />
+    <Compile Include="API\Status.cs" />
+    <Compile Include="API\Withdraw.cs" />
     <Compile Include="Util\Debug.cs" />
     <Compile Include="WinForm\MainForm.cs">
       <SubType>Form</SubType>
