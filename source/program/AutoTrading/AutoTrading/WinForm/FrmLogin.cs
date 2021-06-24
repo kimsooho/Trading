@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoTrading.API;
+using System;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace AutoTrading.WinForm
 {
@@ -32,12 +27,12 @@ namespace AutoTrading.WinForm
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Login();
-            this.DialogResult = DialogResult.OK;
+            if (Login())
+                this.DialogResult = DialogResult.OK;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
-        {            
+        {
             this.DialogResult = DialogResult.Cancel;
         }
 
@@ -51,12 +46,18 @@ namespace AutoTrading.WinForm
             }
         }
 
-        private void Login()
+        private bool Login()
         {
-            if(chkRememberIdInfo.Checked)
+            string strAccessKey = txtAccessKey.Text;
+            string strSecretKey = txtSecetKey.Text;
+
+            if (!CheckSession(strAccessKey, strSecretKey))
+                return false;
+
+            if (chkRememberIdInfo.Checked)
             {
-                Properties.Settings.Default.AccessKey = txtAccessKey.Text;
-                Properties.Settings.Default.SecretKey = txtSecetKey.Text;
+                Properties.Settings.Default.AccessKey = strAccessKey;
+                Properties.Settings.Default.SecretKey = strSecretKey;
 
                 Properties.Settings.Default.Save();
             }
@@ -67,6 +68,24 @@ namespace AutoTrading.WinForm
 
                 Properties.Settings.Default.Save();
             }
+
+            return true;
+        }
+
+        private bool CheckSession(string strAccessKey, string strSecretKey)
+        {
+            RestApiManager.GetInstance().SetKeys(strAccessKey, strSecretKey);
+
+            string ret = RestApiManager.GetInstance().GetAccounts().GetAllAccounts();
+
+            if (ret.Contains("error"))
+            {
+                JObject jObject = JObject.Parse(ret);
+                MessageBox.Show(jObject["error"]["message"].ToString(), "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
     }
 }

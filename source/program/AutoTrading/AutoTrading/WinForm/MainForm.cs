@@ -44,10 +44,8 @@ namespace AutoTrading.WinForm
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {   
-            RestApiManager.GetInstance().SetKeys(Properties.Settings.Default.AccessKey, Properties.Settings.Default.SecretKey);
-            MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
-            //Debug.Log("hello");
+        {
+            
         }
     }
 }

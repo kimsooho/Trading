@@ -12,7 +12,7 @@ namespace AutoTrading.API
         public Accounts(string accessKey, string secretKey) : base(accessKey, secretKey) { }
         public string GetAllAccounts()
         {
-            return CallRestAPI("GET", "https://api.upbit.com/v1/market/all?isDetails=false");
+            return CallRestAPI("GET", "https://api.upbit.com/v1/accounts");
         }
 
         public string Test()

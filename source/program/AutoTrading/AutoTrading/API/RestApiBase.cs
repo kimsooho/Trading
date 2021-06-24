@@ -84,6 +84,9 @@ namespace AutoTrading.API
                 { "query_hash_alg", "SHA512" }
             };
 
+            if (string.IsNullOrWhiteSpace(queryString))
+                payload.Remove("query_hash");
+
             byte[] keyBytes = Encoding.Default.GetBytes(SecretKey);
             var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyBytes);
             var credentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, "HS256");
