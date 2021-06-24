@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.IdentityModel.Tokens.Jwt;
 using System.Security.Cryptography;
 
 using AutoTrading.API;
@@ -20,7 +19,11 @@ namespace AutoTrading.WinForm
         public MainForm()
         {
             InitializeComponent();
+            this.Visible = false;
+
+            Login();
             InitEvents();
+            
         }
 
         private void InitEvents()
@@ -28,11 +31,23 @@ namespace AutoTrading.WinForm
             this.Load += MainForm_Load;
         }
 
+        private void Login()
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.StartPosition = FormStartPosition.CenterParent;
+            if(frmLogin.ShowDialog() != DialogResult.OK)
+            {
+                MessageBox.Show("Login Fail");
+                Application.ExitThread();
+                Environment.Exit(0);
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {   
-            RestApiManager.GetInstance().SetKeys("ACCESS KEY 입력", "SECRET KEY 입력");
-            MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
-            Debug.GetInstance().Log("hello");
+            //RestApiManager.GetInstance().SetKeys("ACCESS KEY 입력", "SECRET KEY 입력");
+            //MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
+            //Debug.Log("hello");
         }
     }
 }

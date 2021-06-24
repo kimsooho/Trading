@@ -66,6 +66,12 @@
     <Compile Include="API\Status.cs" />
     <Compile Include="API\Withdraw.cs" />
     <Compile Include="Util\Debug.cs" />
+    <Compile Include="WinForm\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WinForm\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
