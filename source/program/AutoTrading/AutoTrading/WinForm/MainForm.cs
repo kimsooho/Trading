@@ -45,8 +45,8 @@ namespace AutoTrading.WinForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {   
-            //RestApiManager.GetInstance().SetKeys("ACCESS KEY 입력", "SECRET KEY 입력");
-            //MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
+            RestApiManager.GetInstance().SetKeys(Properties.Settings.Default.AccessKey, Properties.Settings.Default.SecretKey);
+            MessageBox.Show(RestApiManager.GetInstance().GetAccounts().GetAllAccounts());
             //Debug.Log("hello");
         }
     }

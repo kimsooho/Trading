@@ -65,6 +65,7 @@
     <Compile Include="API\RestApiManager.cs" />
     <Compile Include="API\Status.cs" />
     <Compile Include="API\Withdraw.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Util\Debug.cs" />
     <Compile Include="WinForm\FrmLogin.cs">
       <SubType>Form</SubType>
