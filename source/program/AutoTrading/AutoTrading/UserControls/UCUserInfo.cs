@@ -16,5 +16,15 @@ namespace AutoTrading.UserControls
         {
             InitializeComponent();
         }
+
+        private void InitEvnets()
+        {
+            this.Load += UCUserInfo_Load;
+        }
+
+        private void UCUserInfo_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

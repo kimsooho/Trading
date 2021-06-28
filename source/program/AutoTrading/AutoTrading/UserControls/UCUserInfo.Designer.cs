@@ -28,18 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.lbVersion = new System.Windows.Forms.Label();
+            this.tblLayout.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tblLayout
+            // 
+            this.tblLayout.ColumnCount = 5;
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.44086F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.55914F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 381F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tblLayout.Controls.Add(this.lbVersion, 1, 1);
+            this.tblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblLayout.Location = new System.Drawing.Point(0, 0);
+            this.tblLayout.Name = "tblLayout";
+            this.tblLayout.RowCount = 3;
+            this.tblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.3301F));
+            this.tblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.66991F));
+            this.tblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tblLayout.Size = new System.Drawing.Size(526, 70);
+            this.tblLayout.TabIndex = 0;
+            // 
+            // lbVersion
+            // 
+            this.lbVersion.AutoSize = true;
+            this.lbVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbVersion.Location = new System.Drawing.Point(6, 5);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(94, 17);
+            this.lbVersion.TabIndex = 0;
+            this.lbVersion.Text = "Version : 1.0.0";
             // 
             // UCUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tblLayout);
             this.Name = "UCUserInfo";
-            this.Size = new System.Drawing.Size(526, 219);
+            this.Size = new System.Drawing.Size(526, 70);
+            this.tblLayout.ResumeLayout(false);
+            this.tblLayout.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tblLayout;
+        private System.Windows.Forms.Label lbVersion;
     }
 }

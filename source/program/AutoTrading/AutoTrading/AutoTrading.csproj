@@ -69,6 +69,12 @@
     <Compile Include="API\Status.cs" />
     <Compile Include="API\Withdraw.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="UserControls\UCContentTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCContentTab.Designer.cs">
+      <DependentUpon>UCContentTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,12 @@
     </Compile>
     <Compile Include="UserControls\UCTreeView.Designer.cs">
       <DependentUpon>UCTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCUserInfo.Designer.cs">
+      <DependentUpon>UCUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Debug.cs" />
     <Compile Include="WinForm\FrmLogin.cs">
@@ -105,14 +117,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCContentTab.resx">
+      <DependentUpon>UCContentTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCMain.resx">
       <DependentUpon>UCMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCTreeView.resx">
       <DependentUpon>UCTreeView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCUserInfo.resx">
+      <DependentUpon>UCUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

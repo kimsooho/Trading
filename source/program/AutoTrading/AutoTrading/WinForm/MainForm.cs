@@ -46,20 +46,14 @@ namespace AutoTrading.WinForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
             Create();
         }
 
-        private void SetFormPosition()
-        {
-            //this.pos
-        }
         private void Create()
         {
-            UCTreeView treeView = new UCTreeView();
-            treeView.Dock = DockStyle.Left;
-            treeView.Width = 200;
-            this.Controls.Add(treeView);
+            UCMain uCMain = new UCMain();
+            uCMain.Dock = DockStyle.Fill;
+            this.Controls.Add(uCMain);
         }
     }
 }
