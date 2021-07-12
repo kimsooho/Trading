@@ -68,29 +68,36 @@
     <Compile Include="API\RestApiManager.cs" />
     <Compile Include="API\Status.cs" />
     <Compile Include="API\Withdraw.cs" />
+    <Compile Include="Events\NodeMouseClickEventArgs.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="UserControls\UCContentTab.cs">
+    <Compile Include="UserControls\Accounts\UCAccountList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCContentTab.Designer.cs">
+    <Compile Include="UserControls\Accounts\UCAccountList.Designer.cs">
+      <DependentUpon>UCAccountList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\UCContentTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Main\UCContentTab.Designer.cs">
       <DependentUpon>UCContentTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCMain.cs">
+    <Compile Include="UserControls\Main\UCMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCMain.Designer.cs">
+    <Compile Include="UserControls\Main\UCMain.Designer.cs">
       <DependentUpon>UCMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCTreeView.cs">
+    <Compile Include="UserControls\Main\UCTreeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCTreeView.Designer.cs">
+    <Compile Include="UserControls\Main\UCTreeView.Designer.cs">
       <DependentUpon>UCTreeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCUserInfo.cs">
+    <Compile Include="UserControls\Main\UCUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCUserInfo.Designer.cs">
+    <Compile Include="UserControls\Main\UCUserInfo.Designer.cs">
       <DependentUpon>UCUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Debug.cs" />
@@ -117,16 +124,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\UCContentTab.resx">
+    <EmbeddedResource Include="UserControls\Accounts\UCAccountList.resx">
+      <DependentUpon>UCAccountList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Main\UCContentTab.resx">
       <DependentUpon>UCContentTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCMain.resx">
+    <EmbeddedResource Include="UserControls\Main\UCMain.resx">
       <DependentUpon>UCMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCTreeView.resx">
+    <EmbeddedResource Include="UserControls\Main\UCTreeView.resx">
       <DependentUpon>UCTreeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCUserInfo.resx">
+    <EmbeddedResource Include="UserControls\Main\UCUserInfo.resx">
       <DependentUpon>UCUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FrmLogin.resx">

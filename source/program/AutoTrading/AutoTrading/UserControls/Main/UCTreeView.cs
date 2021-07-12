@@ -8,29 +8,49 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AutoTrading.UserControls.Accounts;
+using AutoTrading.Events;
+using AutoTrading.Util;
+
 namespace AutoTrading.UserControls
 {
     public partial class UCTreeView : UserControl
     {
+        public event EventHandler NodeClick;
+
+        public void OnNodeClick(NodeMouseClickEventArgs e)
+        {
+            if(NodeClick != null)
+            {
+                NodeClick(this, e);
+            }
+        }
+
         public UCTreeView()
         {
             InitializeComponent();
+            InitEvents();
             InitItems();
         }
 
         private void InitEvents()
         {
+            this.treeView.NodeMouseClick += TreeView_NodeMouseClick;
+        }
 
+        private void TreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            OnNodeClick(new NodeMouseClickEventArgs(e.Node.Name, e.Node.Text));
         }
 
         private void InitItems()
         {
             TreeNode nodeAccounts = new TreeNode("투자 내역");
-            nodeAccounts.Nodes.Add("보유 코인");
+            nodeAccounts.Nodes.Add("","보유 코인");
             nodeAccounts.Nodes.Add("거래 내역");
 
             TreeNode nodeOrder = new TreeNode("거래소");
-            nodeOrder.Nodes.Add("코인 리스트");
+            nodeOrder.Nodes.Add("AccountList", "코인 리스트");
             nodeOrder.Nodes.Add("주문 리스트");
 
             TreeNode nodeDepositWithdrawal = new TreeNode("입출금");
