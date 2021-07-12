@@ -46,11 +46,11 @@ namespace AutoTrading.UserControls
         private void InitItems()
         {
             TreeNode nodeAccounts = new TreeNode("투자 내역");
-            nodeAccounts.Nodes.Add("","보유 코인");
+            nodeAccounts.Nodes.Add("AccountList", "보유 코인");
             nodeAccounts.Nodes.Add("거래 내역");
 
             TreeNode nodeOrder = new TreeNode("거래소");
-            nodeOrder.Nodes.Add("AccountList", "코인 리스트");
+            nodeOrder.Nodes.Add("", "코인 리스트");
             nodeOrder.Nodes.Add("주문 리스트");
 
             TreeNode nodeDepositWithdrawal = new TreeNode("입출금");
