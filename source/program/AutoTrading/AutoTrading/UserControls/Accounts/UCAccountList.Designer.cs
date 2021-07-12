@@ -28,18 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlAccountInfo = new System.Windows.Forms.Panel();
+            this.pnlCoinInfo = new System.Windows.Forms.Panel();
+            this.gvCoin = new System.Windows.Forms.DataGridView();
+            this.pnlCoinInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCoin)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pnlAccountInfo
+            // 
+            this.pnlAccountInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAccountInfo.Location = new System.Drawing.Point(0, 0);
+            this.pnlAccountInfo.Name = "pnlAccountInfo";
+            this.pnlAccountInfo.Size = new System.Drawing.Size(1214, 140);
+            this.pnlAccountInfo.TabIndex = 0;
+            // 
+            // pnlCoinInfo
+            // 
+            this.pnlCoinInfo.Controls.Add(this.gvCoin);
+            this.pnlCoinInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCoinInfo.Location = new System.Drawing.Point(0, 140);
+            this.pnlCoinInfo.Name = "pnlCoinInfo";
+            this.pnlCoinInfo.Size = new System.Drawing.Size(1214, 557);
+            this.pnlCoinInfo.TabIndex = 1;
+            // 
+            // gvCoin
+            // 
+            this.gvCoin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCoin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvCoin.Location = new System.Drawing.Point(0, 0);
+            this.gvCoin.Name = "gvCoin";
+            this.gvCoin.RowTemplate.Height = 23;
+            this.gvCoin.Size = new System.Drawing.Size(1214, 557);
+            this.gvCoin.TabIndex = 0;
             // 
             // UCAccountList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlCoinInfo);
+            this.Controls.Add(this.pnlAccountInfo);
             this.Name = "UCAccountList";
-            this.Size = new System.Drawing.Size(626, 519);
+            this.Size = new System.Drawing.Size(1214, 697);
+            this.pnlCoinInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvCoin)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlAccountInfo;
+        private System.Windows.Forms.Panel pnlCoinInfo;
+        private System.Windows.Forms.DataGridView gvCoin;
     }
 }
