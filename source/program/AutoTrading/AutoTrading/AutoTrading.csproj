@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="Util\Column.cs" />
     <Compile Include="Util\Debug.cs" />
+    <Compile Include="Util\Parser.cs" />
     <Compile Include="WinForm\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
